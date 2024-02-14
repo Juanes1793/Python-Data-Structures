@@ -35,11 +35,8 @@ class DoublyLinkedList:
     def reverse(self):
         current_node = self.head
         while current_node:
-            temp_next = current_node.next
-            current_node.next = current_node.prev
-            current_node.prev = temp_next
-            current_node = temp_next
-        
+            current_node.prev, current_node.next = current_node.next, current_node.prev
+            current_node = current_node.prev
         self.head, self.tail = self.tail, self.head
 
 my_doubly_linked_list = DoublyLinkedList(1)
